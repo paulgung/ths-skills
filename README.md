@@ -6,7 +6,7 @@ Agent Skills 集合，用于增强 AI Agent 在特定场景下的任务执行能
 
 ## Skills 列表
 
-### tech-research — 技术调研八维矩阵
+### four-knowns — 四知道·技术调研矩阵
 
 对指定技术领域进行系统性调研，覆盖**横向四知道**和**纵向四知道**共八个维度。
 
@@ -34,7 +34,7 @@ Agent Skills 集合，用于增强 AI Agent 在特定场景下的任务执行能
 #### 文件结构
 
 ```
-skills/tech-research/
+skills/four-knowns/
 ├── SKILL.md              # 核心指令文件
 ├── research-template.md  # 调研报告输出模板
 └── examples.md           # 使用示例
@@ -45,8 +45,8 @@ skills/tech-research/
 ### Cursor
 
 将 skill 目录放置在以下位置之一：
-- **个人 skill**: `~/.cursor/skills/tech-research/`
-- **项目 skill**: `.cursor/skills/tech-research/`
+- **个人 skill**: `~/.cursor/skills/four-knowns/`
+- **项目 skill**: `.cursor/skills/four-knowns/`
 
 ### Claude Code
 
