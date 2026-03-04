@@ -35,9 +35,7 @@ Agent Skills 集合，用于增强 AI Agent 在特定场景下的任务执行能
 
 ```
 skills/four-knowns/
-├── SKILL.md              # 核心指令文件
-├── research-template.md  # 调研报告输出模板
-└── examples.md           # 使用示例
+└── SKILL.md    # 核心指令文件（含输出模板）
 ```
 
 ## 如何使用
