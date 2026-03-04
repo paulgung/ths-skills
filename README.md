@@ -9,20 +9,20 @@ Skills follow the [Agent Skills](https://github.com/anthropics/skills) format an
 Using the skills CLI:
 
 ```bash
-npx skills add pxgung/ths-skills
+npx skills add paulgung/ths-skills
 ```
 
 ### Source Formats
 
 ```bash
 # GitHub shorthand
-npx skills add pxgung/ths-skills
+npx skills add paulgung/ths-skills
 
 # Full GitHub URL
-npx skills add https://github.com/pxgung/ths-skills
+npx skills add https://github.com/paulgung/ths-skills
 
 # Direct path to a specific skill
-npx skills add https://github.com/pxgung/ths-skills/tree/main/skills/four-knowns
+npx skills add https://github.com/paulgung/ths-skills/tree/main/skills/four-knowns
 
 # Local path
 npx skills add ./ths-skills
@@ -33,7 +33,7 @@ npx skills add ./ths-skills
 If you prefer not to use the CLI, copy the skill directly:
 
 ```bash
-git clone https://github.com/pxgung/ths-skills ths-skills
+git clone https://github.com/paulgung/ths-skills ths-skills
 
 # Install globally
 cp -r ths-skills/skills/four-knowns ~/.cursor/skills/
