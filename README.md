@@ -35,8 +35,9 @@ If you prefer not to use the CLI, copy the skill directly:
 ```bash
 git clone https://github.com/paulgung/ths-skills ths-skills
 
-# Install globally
+# Install a specific skill globally
 cp -r ths-skills/skills/four-knowns ~/.cursor/skills/
+cp -r ths-skills/skills/company-analysis ~/.cursor/skills/
 ```
 
 ### Installation Scope
@@ -83,6 +84,32 @@ Use `-g` or `--global` with the skills CLI for global installation.
 
 调研报告按八个维度逐一输出，每个维度包含调研要点和结构化表格，最终产出综合 SWOT 分析和分阶段行动建议。
 
+### company-analysis
+
+以导师视角对指定上市公司进行多维度深度分析，像老友聊天一样输出深度洞察。
+
+**Use when:**
+- "帮我分析一下 [公司名/股票代码]"
+- "拆解一下 [公司] 的商业模式"
+- "看看 [公司] 的护城河怎么样"
+- "做一份公司深度分析 / 个股研究"
+
+**Features:**
+
+**五大分析维度**:
+
+| 维度 | 关注点 |
+|------|--------|
+| 一、业务全景 | 主营业务拆解、产品矩阵、收入占比、飞轮效应、业务演变 |
+| 二、商业模式 | 收入模式、成本结构、价值链定位、增长引擎、模式精妙处 |
+| 三、运营核心 | 核心技术依赖（硬件/软件/服务）、关键流程、数据与网络效应 |
+| 四、盈利分析 | 利润水平、现金流质量、增长与盈利平衡、财务健康度 |
+| 五、护城河分析 | 品牌/网络效应/转换成本/成本优势/技术/监管/生态七重护城河 |
+
+**Output structure:**
+
+以导师聊天口吻逐维度展开分析，用"承重墙/装饰品/暗门"比喻帮助理解，最终给出一句话总结、核心命脉、关键洞察和常见误解。
+
 ## Usage
 
 Skills are loaded on demand. When the user's message matches the skill's trigger phrases, the agent reads `SKILL.md` and applies its instructions.
@@ -92,6 +119,9 @@ Examples:
 - `帮我调研一下大语言模型领域的发展情况`
 - `对自动驾驶感知系统做一份四个知道分析`
 - `我们在做联邦学习，帮我做一份深度技术调研`
+- `帮我分析一下 NASDAQ:GOOGL 这家公司`
+- `拆解一下苹果的商业模式和护城河`
+- `做一份腾讯的公司深度分析`
 
 ## What are Agent Skills?
 
@@ -103,6 +133,8 @@ Skills let agents perform specialized tasks like:
 - Industry trend analysis and competitor benchmarking
 - Academic frontier tracking with paper references
 - Engineering architecture review and positioning assessment
+- Multi-dimensional company analysis with mentor perspective
+- Business model teardown and moat assessment
 
 ## Supported Agents
 
@@ -118,8 +150,10 @@ This repository targets **Cursor**. Skills use the Agent Skills specification an
 ```
 ths-skills/
 ├── skills/
-│   └── four-knowns/
-│       └── SKILL.md        # Agent instructions
+│   ├── four-knowns/
+│   │   └── SKILL.md        # 四个知道·技术调研
+│   └── company-analysis/
+│       └── SKILL.md        # 公司深度分析·导师视角
 └── README.md
 ```
 
