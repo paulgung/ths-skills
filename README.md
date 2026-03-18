@@ -1,18 +1,18 @@
 # THS Skills
 
-A collection of skills for AI coding agents. Skills are packaged instructions that extend agent capabilities for structured technology research workflows.
+一个面向 AI coding agent 的 **Agent Skills** 仓库示例集合。Skill 本质是一组可复用的指令（通常在 `SKILL.md` 里），用于让 Agent 在特定请求下自动采用更稳定的流程与产出结构。
 
 Skills follow the [Agent Skills](https://github.com/anthropics/skills) format and are compatible with Cursor.
 
-## Install a Skill
+## 快速开始（安装）
 
-Using the skills CLI:
+使用 `skills` CLI 安装（推荐）：
 
 ```bash
 npx skills add paulgung/ths-skills
 ```
 
-### Source Formats
+### 常见安装来源（Source formats）
 
 ```bash
 # GitHub shorthand
@@ -40,7 +40,7 @@ cp -r ths-skills/skills/four-knowns ~/.cursor/skills/
 cp -r ths-skills/skills/company-analysis ~/.cursor/skills/
 ```
 
-### Installation Scope
+### 安装范围（Installation scope）
 
 | Scope | Location | Use Case |
 |-------|----------|----------|
@@ -49,72 +49,11 @@ cp -r ths-skills/skills/company-analysis ~/.cursor/skills/
 
 Use `-g` or `--global` with the skills CLI for global installation.
 
-## Available Skills
+## 如何使用（在对话中触发）
 
-### four-knowns
+Skill 是“按需加载”的：当你的提问与 Skill 的描述/触发语句匹配时，Agent 会读取对应的 `SKILL.md` 并按其中流程输出。
 
-对指定技术领域进行"四个知道"系统性调研，覆盖横向四知道和纵向四知道共八个维度。
-
-**Use when:**
-- "帮我调研一下 [技术领域] 的发展情况"
-- "对 [领域] 做一份四个知道分析"
-- "做一份技术调研 / 竞品分析 / 行业分析"
-
-**Features:**
-
-**横向四知道**（宏观环境扫描）:
-
-| 维度 | 关注点 |
-|------|--------|
-| （1）社会发展2-3年行业的趋势 | 市场规模、增长预测、拐点信号、投融资动态 |
-| （2）竞争对手的情况 | 竞争格局、玩家画像、差异化对比、商业模式 |
-| （3）政策监控方向 | 国内外政策、行业标准、合规红线、政策机遇 |
-| （4）技术发展 | 技术路线图、关键突破、瓶颈、开源生态 |
-
-**纵向四知道**（技术深度剖析）:
-
-| 维度 | 关注点 |
-|------|--------|
-| （1）主要的paper，理论上能达到的，学术前沿 | 顶级论文、理论极限、前沿方向、关键研究组 |
-| （2）工业水平，最牛掰的公司达到的工程架构，市场上流行的 | 标杆企业 Top 5、性能基准、市场主流方案 |
-| （3）牛掰的架构，主要的工程模块 | 最优架构设计、核心模块拆解、技术栈推荐 |
-| （4）我们技术在行业中的位置，可以达到的程度 | 行业分位评估、差距分析、发展路线图 |
-
-**Output structure:**
-
-调研报告按八个维度逐一输出，每个维度包含调研要点和结构化表格，最终产出综合 SWOT 分析和分阶段行动建议。
-
-### company-analysis
-
-以导师视角对指定上市公司进行多维度深度分析，像老友聊天一样输出深度洞察。
-
-**Use when:**
-- "帮我分析一下 [公司名/股票代码]"
-- "拆解一下 [公司] 的商业模式"
-- "看看 [公司] 的护城河怎么样"
-- "做一份公司深度分析 / 个股研究"
-
-**Features:**
-
-**五大分析维度**:
-
-| 维度 | 关注点 |
-|------|--------|
-| 一、业务全景 | 主营业务拆解、产品矩阵、收入占比、飞轮效应、业务演变 |
-| 二、商业模式 | 收入模式、成本结构、价值链定位、增长引擎、模式精妙处 |
-| 三、运营核心 | 核心技术依赖（硬件/软件/服务）、关键流程、数据与网络效应 |
-| 四、盈利分析 | 利润水平、现金流质量、增长与盈利平衡、财务健康度 |
-| 五、护城河分析 | 品牌/网络效应/转换成本/成本优势/技术/监管/生态七重护城河 |
-
-**Output structure:**
-
-以导师聊天口吻逐维度展开分析，用"承重墙/装饰品/暗门"比喻帮助理解，最终给出一句话总结、核心命脉、关键洞察和常见误解。
-
-## Usage
-
-Skills are loaded on demand. When the user's message matches the skill's trigger phrases, the agent reads `SKILL.md` and applies its instructions.
-
-Examples:
+示例（本仓库相关）：
 
 - `帮我调研一下大语言模型领域的发展情况`
 - `对自动驾驶感知系统做一份四个知道分析`
@@ -122,6 +61,18 @@ Examples:
 - `帮我分析一下 NASDAQ:GOOGL 这家公司`
 - `拆解一下苹果的商业模式和护城河`
 - `做一份腾讯的公司深度分析`
+- `帮我给这个函数写注释`
+- `审查一下 src/api/ 目录的注释质量`
+
+## 本仓库包含的 Skills（索引）
+
+每个 Skill 的详细触发方式与输出结构请看对应目录下的 `SKILL.md` 和 `README.md`。
+
+| Skill | 目录 | 用途 |
+|-------|------|------|
+| 四个知道 | `skills/four-knowns/` | 技术调研 / 行业分析 / 竞品分析 |
+| 公司深度分析 | `skills/company-analysis/` | 上市公司多维度分析（导师视角） |
+| 代码注释指南 | `skills/code-comments/` | 注释哲学 / 各层级写法 / 质量审计 |
 
 ## What are Agent Skills?
 
@@ -151,9 +102,13 @@ This repository targets **Cursor**. Skills use the Agent Skills specification an
 ths-skills/
 ├── skills/
 │   ├── four-knowns/
-│   │   └── SKILL.md        # 四个知道·技术调研
-│   └── company-analysis/
-│       └── SKILL.md        # 公司深度分析·导师视角
+│   │   ├── SKILL.md        # 四个知道·技术调研
+│   │   └── README.md
+│   ├── company-analysis/
+│   │   └── SKILL.md        # 公司深度分析·导师视角
+│   └── code-comments/
+│       ├── SKILL.md        # 代码注释指南·注释哲学与审计
+│       └── README.md
 └── README.md
 ```
 
