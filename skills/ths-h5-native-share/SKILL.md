@@ -1,9 +1,9 @@
 ---
-name: share-integration
+name: ths-h5-native-share
 description: 为同花顺 H5 页面接入客户端右上角分享功能。适用于用户要求“给 THS H5 页面加右上角分享”“接入 setTitleBar、changeWebViewButton、hexinShare”“复用同花顺客户端协议做分享”时。输出基于 window.callNativeHandler 和 window.registerWebHandler 的最小可用实现。
 ---
 
-# Share Integration
+# ths-h5-native-share
 
 用于给同花顺 H5 页面接入客户端右上角分享，并按需补充微信二次分享，不是通用浏览器分享 skill。
 
