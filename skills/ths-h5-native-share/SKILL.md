@@ -31,13 +31,15 @@ description: 为同花顺 H5 页面接入客户端右上角分享功能。适用
 ## 工作流
 
 1. 确认页面运行在同花顺客户端 WebView。
-2. 确认分享数据来源：
+2. 先检查 bridge 能力是否可用（`window.callNativeHandler` / `window.registerWebHandler`）；
+   如果不可用，动态注入 `https://s.thsi.cn/cb?js/m/v2.9/common/bridge.js`，并在脚本加载完成后再继续后续步骤。
+3. 确认分享数据来源：
    页面初始化就有，还是接口返回后才有。
-3. 打开 [references/ths-h5-share-recipes.md](references/ths-h5-share-recipes.md)，直接套最小模板或项目示例代码。
-4. 把协议调用收敛成公共函数：
+4. 打开 [references/ths-h5-share-recipes.md](references/ths-h5-share-recipes.md)，直接套最小模板或项目示例代码。
+5. 把协议调用收敛成公共函数：
    `showShareBtn`、`buildSharePayload`、`bindNativeShare`、`appendScript`、`setWxTwiceShareInfo`
-5. 如果页面会被切到后台再回来，补一次 on-show 时的 `showShareBtn()`。
-6. 完成后检查：
+6. 如果页面会被切到后台再回来，补一次 on-show 时的 `showShareBtn()`。
+7. 完成后检查：
    - 右上角分享按钮是否出现
    - 点击后是否能拉起客户端分享面板
    - 标题、摘要、URL 是否正确
@@ -68,6 +70,7 @@ description: 为同花顺 H5 页面接入客户端右上角分享功能。适用
 - 分享内容 builder 单独封装，不要写死在回调内部
 - 如果分享文案依赖异步接口，等数据 ready 后再绑定或更新
 - 如果页面反复进入，注意避免重复注册同一个 handler
+- 如果页面未预置 bridge.js，必须先注入 `https://s.thsi.cn/cb?js/m/v2.9/common/bridge.js`，并等待加载成功后再调用客户端协议
 - skill 必须给出可直接复制的项目示例代码，不能只写原则描述
 
 ## 输出要求
